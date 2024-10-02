@@ -16,6 +16,7 @@ export default function App() {
       <Text style={{ color: 'white' }}>Open up App.js to start working on your app! 😺💸</Text>
       <LoginForm />
       <Saludar firstName="Cristiam" lastname="Montoya" />
+      <Saludar />
     </View>
   );
 }
