@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import icon from '../curso-react-native-desde-cero/assets/icon.png'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image source={icon} style={{width: '100', height: '100'}} />
-      <Text>Open up App.js to start working on your app!</Text>
+      <Image source={{ uri: "https://es.mypet.com/wp-content/uploads/sites/23/2021/03/GettyImages-623368750-e1582816063521-1.jpg" }} style={{
+          width: 100, 
+          height: 100,
+      }} />
+      <Text>Open up App.js to start working on your app! 😺💸</Text>
       <StatusBar style="auto" />
     </View>
   );
