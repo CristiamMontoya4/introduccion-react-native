@@ -8,6 +8,7 @@ import Saludar from './src/components/Saludar';
 export default function App() {
 
   //statusBar es una libreria externa de expo, que permite modificar la barra superior (donde esta la hora, batería, etc)
+  //
   return (
     <NavigationContainer>
       <View style={styles.container}>
