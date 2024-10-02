@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import LoginForm from '../components/LoginFom';
 import Saludar from '../components/Saludar';
+import { SafeAreaView } from 'react-native-safe-area-context';  //importación para no pegarse con la barra superior de la hora y bateria
 
 export default function HomeScreen({ navigation }) {
 
@@ -13,12 +14,12 @@ export default function HomeScreen({ navigation }) {
 
       //statusBar es una libreria externa de expo, que permite modificar la barra superior (donde esta la hora, batería, etc)
     return(
-        <View>
+        <SafeAreaView>
             <Text>
                 Estamos en el Home 🏠
             </Text>
            <Button onPress={goToSettings} title="Ir a Settings" />
-        </View>
+        </SafeAreaView>
     );
 }
 
