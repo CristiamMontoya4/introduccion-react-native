@@ -1,8 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import LoginForm from './src/components/LoginFom';
+import Saludar from './src/components/Saludar';
 
 export default function App() {
+
+  //statusBar es una libreria externa de expo, que permite modificar la barra superior (donde esta la hora, batería, etc)
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
@@ -12,6 +15,7 @@ export default function App() {
       }} />
       <Text style={{ color: 'white' }}>Open up App.js to start working on your app! 😺💸</Text>
       <LoginForm />
+      <Saludar firstName="Cristiam" lastname="Montoya" />
     </View>
   );
 }
