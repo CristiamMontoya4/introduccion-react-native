@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import {View, Text, TouchableHighlight, Button, StyleSheet, Pressable} from 'react-native';
 
 
 //EN esta pantalla se hara unejemplo con varios componentes de react-native
 export default function PruebaScreen() {
+
+    const [games, setGames] = useState([]);
+    
+
     return(
         <View style={styles.container}>
             <Text>Hola!</Text>
