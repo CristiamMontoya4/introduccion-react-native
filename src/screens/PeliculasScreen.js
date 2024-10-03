@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getLatestGames } from '../../lib/metacritic';
 import { View } from "react-native-reanimated/lib/typescript/Animated";
-import { Image, StyleSheet, Text, S, SafeAreaView, ScrollView } from 'react-native';
+import { Image, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
 
 
 //ScrollView, permite hacer scroll pero renderiza todos los elementos
@@ -19,22 +20,20 @@ export default function() {
 
     return(
         <View style={styles.container}>
-            <SafeAreaView>
-                <ScrollView style={{ margin: 12 }}>
-                    <Text>Peliculas</Text>
-                    {games.map(game => (
-                        <View key={game.slug} style={styles.card}>
-                            <Image 
-                                source={{ uri: game.Image }}
-                                style={styles.image}
-                            />
-                            <Text style={styles.score}>{game.score}</Text>
-                            <Text style={styles.title}>{game.title}</Text>
-                            <Text style={styles.description}>{game.description}</Text>          
-                        </View>
-                    ))}
-                </ScrollView>
-            </SafeAreaView>
+            <ScrollView style={{ margin: 12 }}>
+                <Text>Peliculas</Text>
+                {games.map(game => (
+                    <View key={game.slug} style={styles.card}>
+                        <Image 
+                            source={{ uri: game.Image }}
+                            style={styles.image}
+                        />
+                        <Text style={styles.score}>{game.score}</Text>
+                        <Text style={styles.title}>{game.title}</Text>
+                        <Text style={styles.description}>{game.description}</Text>          
+                    </View>
+                ))}
+            </ScrollView>
         </View> 
     );
 }
@@ -45,6 +44,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#111',
         alignItems: 'center',
         justifyContent: 'center',
+    //  paddingTop: Constants.statusBarHeight, deja un espacio dependiendo del status bar, dependiendo del dispositivo
+        padding: 12,
     },
     card: {
         backgroundColor: 'orange',
