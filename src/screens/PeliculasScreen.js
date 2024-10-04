@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getLatestGames } from '../../lib/metacritic';
-import { View } from "react-native-reanimated/lib/typescript/Animated";
-import { Image, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import { Image, StyleSheet, Text, SafeAreaView, ScrollView, View } from 'react-native';
 import Constants from 'expo-constants';
 import { Main } from '../components/Main';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

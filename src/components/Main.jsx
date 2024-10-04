@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getLatestGames } from '../../lib/metacritic';
-import { View } from "react-native-reanimated/lib/typescript/Animated";
-import { Image, StyleSheet, Text, SafeAreaView, ScrollView, ActivityIndicator } from 'react-native';
+import { Image, StyleSheet, Text, SafeAreaView, ScrollView, ActivityIndicator, FlatList, View } from 'react-native';
 import Constants from 'expo-constants';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { GameCard } from './GameCard';
+import { AnimatedGameCard } from './GameCard';
+import { LogoMetacritic } from './LogoMetacritic';
 
 
 //ScrollView, permite hacer scroll pero renderiza todos los elementos
@@ -21,19 +21,37 @@ export function Main() {
         })
     }, []);
 
+    /* los insets permite usar los espacios seguros, osea no pegar con la barra superior ni la inferior*/
     return(
-        <View style={{paddingTop: insets.top, padding: insets.bottom}}> {/* los insets permite usar los espacios seguros, osea no pegar con la barra superior ni la inferior*/}
-            
-                <Text>Peliculas</Text>
-                {game.length === 0 ?  (
-                    <ActivityIndicator color={"#fff"} size={"large"} />
-                )  :  (
-                    <ScrollView style={{ margin: 12 }}>
-                        {games.map((game) => <GameCard key={game.slug} game={game} /> )}
-                    </ScrollView>
-                )
-                }
+        <View style={{paddingTop: insets.top, padding: insets.bottom}}>
+            <View style={{marginBottom: 10, marginTop: 20}}>
+                <LogoMetacritic />
+            </View>
+            <Text style={styles.text}>Videojuegos</Text>
+            {games.length === 0 ?  (
+                <ActivityIndicator color={"#fff"} size={"large"} />
+            )  :  (
+                <>
+                    {/*Ideal para renderizar scroll, no usa children */}
+                    {/*  {games.map((game) => <GameCard key={game.slug} game={game} /> )}  flat list no necesita este map*/}
+                    <FlatList 
+                        data={games}
+                        keyExtractor={(game)=> game.slug}
+                        renderItem={({ item, index }) => (<AnimatedGameCard game={item} index={index} />)}
+                    /> 
+                </>
+            )
+            }
         </View> 
     );
 }
+
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 20,
+        color: 'white',
+        marginBottom: 10,
+        justifyContent: 'center'
+    }
+});
 
