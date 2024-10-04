@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import LoginForm from '../components/LoginFom';
 import Saludar from '../components/Saludar';
 import { SafeAreaView } from 'react-native-safe-area-context';  //importación para no pegarse con la barra superior de la hora y bateria
+import { LogoMetacritic } from '../components/LogoMetacritic';
 
 export default function HomeScreen({ navigation }) {
 
